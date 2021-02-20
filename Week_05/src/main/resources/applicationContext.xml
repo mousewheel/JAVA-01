@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+    <beans>
+
+        <context:component-scan base-package="com.mousewheel"/>
+        <bean class="com.mousewheel.entity.Student" id="studentById">
+            <property name="name" value="zhangsan"/>
+            <property name="age" value="16"/>
+        </bean>
+        <bean class="com.mousewheel.entity.Student" name="studentByName">
+            <property name="name" value="lisi"/>
+            <property name="age" value="18"/>
+        </bean>
+        <bean class="com.mousewheel.entity.StudentByClass">
+            <property name="name" value="wangwu"/>
+            <property name="age" value="20"/>
+        </bean>
+
+        <bean id="datasource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+            <property name="url" value="jdbc:mysql://localhost:3306/demo"></property>
+            <property name="username" value="app"></property>
+            <property name="password" value="123456"></property>
+        </bean>
+
+        <bean name="jt" class="org.springframework.jdbc.core.JdbcTemplate" >
+            <constructor-arg name="dataSource" ref="datasource"></constructor-arg>
+        </bean>
+    </beans>
+</beans>
