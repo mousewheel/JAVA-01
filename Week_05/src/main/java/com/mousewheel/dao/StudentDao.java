@@ -18,7 +18,10 @@ public class StudentDao {
 
         String sql="select * from student";
         jt.query(sql,(rs) -> {
-            students.add(new Student(rs.getString("name"), rs.getInt("age")));
+            Student student= new Student();
+            student.setName(rs.getString("name"));
+            student.setAge(rs.getInt("age"));
+            students.add(student);
         });
 
         if (null != students && students.size()>0) {

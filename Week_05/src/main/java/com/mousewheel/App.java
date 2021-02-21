@@ -16,10 +16,8 @@ import java.lang.reflect.Proxy;
 @Component
 public class App {
 
-    @Autowired
-    private StudentService studentService1;
-
     public static void main( String[] args ) {
+
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         Student studentById = (Student)applicationContext.getBean("studentById");
         studentById.sayHello();
