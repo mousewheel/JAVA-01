@@ -1,0 +1,67 @@
+DROP TABLE m_user;
+CREATE TABLE `m_user` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `USER_NAME` varchar(50) NOT NULL COMMENT '用户名',
+  `PASSWORD` varchar(100) NOT NULL COMMENT '密码',
+  `NICK_NAME` varchar(50) DEFAULT NULL COMMENT '昵称',
+  `GENDER` tinyint(1) DEFAULT NULL COMMENT '性别：0-女；1-男',
+  `BIRTHDAY` int(11) DEFAULT NULL COMMENT '生日',
+  `EMAIL` varchar(255) DEFAULT NULL COMMENT '邮箱',
+  `PHONE` varchar(20) DEFAULT NULL COMMENT '电话',
+  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+DROP TABLE m_product;
+CREATE TABLE `m_product` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `PRODUCT_NAME` varchar(200) NOT NULL DEFAULT '' COMMENT '商品名称',
+  `CATEGORY_ID` int(11) NOT NULL COMMENT '分类ID',
+  `VENDOR_ID` int(11) NOT NULL COMMENT '商户ID',
+  `PRICE` decimal(10,0) NOT NULL COMMENT '价格',
+  `STOCK` int(11) NOT NULL COMMENT '库存',
+  `SALED_NUM` int(11) NOT NULL COMMENT '已售数量',
+  `DESCRIPTION` varchar(500) NOT NULL,
+  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE m_order;
+CREATE TABLE `m_order` (
+  `ID` bigint(20) NOT NULL COMMENT 'ID',
+  `ORDER_NO` varchar(30) NOT NULL COMMENT '订单编号',
+  `ORDER_DATE` datetime NOT NULL COMMENT '订单日期',
+  `USER_ID` bigint(20) NOT NULL COMMENT '用户ID  ',
+  `VENDOR_ID` bigint(20) NOT NULL COMMENT '商户ID',
+  `ORDER_SUMMARY` varchar(200) NOT NULL COMMENT '订单概述',
+  `ORDER_STATUS` varchar(5) NOT NULL COMMENT '订单状态',
+  `TOTAL_AMT` decimal(19,2) NOT NULL COMMENT '订单金额',
+  `PAY_STATUS` varchar(5) NOT NULL COMMENT '支付状态',
+  `PAY_CHANNEL` varchar(5) NOT NULL COMMENT '支付渠道',
+  `PAY_AMT` decimal(19,2) NOT NULL COMMENT '支付金额',
+  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE m_order_item;
+CREATE TABLE `m_order_item` (
+  `ID` bigint(20) NOT NULL,
+  `PRODUCT_ID` bigint(20) NOT NULL COMMENT '商品ID  ',
+  `PRODUCT_NAME` varchar(200) NOT NULL COMMENT '商品名称',
+  `UNIT_PRICE` decimal(10,0) NOT NULL COMMENT '单价',
+  `ITEM_COUNT` int(11) NOT NULL COMMENT '数量',
+  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
