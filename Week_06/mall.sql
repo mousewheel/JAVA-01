@@ -8,9 +8,9 @@ CREATE TABLE `m_user` (
   `BIRTHDAY` int(11) DEFAULT NULL COMMENT '生日',
   `EMAIL` varchar(255) DEFAULT NULL COMMENT '邮箱',
   `PHONE` varchar(20) DEFAULT NULL COMMENT '电话',
-  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建日期',
   `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
-  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新日期',
   `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
@@ -25,9 +25,9 @@ CREATE TABLE `m_product` (
   `STOCK` int(11) NOT NULL COMMENT '库存',
   `SALED_NUM` int(11) NOT NULL COMMENT '已售数量',
   `DESCRIPTION` varchar(500) NOT NULL,
-  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建日期',
   `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
-  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新日期',
   `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -45,9 +45,9 @@ CREATE TABLE `m_order` (
   `PAY_STATUS` varchar(5) NOT NULL COMMENT '支付状态',
   `PAY_CHANNEL` varchar(5) NOT NULL COMMENT '支付渠道',
   `PAY_AMT` decimal(19,2) NOT NULL COMMENT '支付金额',
-  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建日期',
   `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
-  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新日期',
   `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -59,9 +59,9 @@ CREATE TABLE `m_order_item` (
   `PRODUCT_NAME` varchar(200) NOT NULL COMMENT '商品名称',
   `UNIT_PRICE` decimal(10,0) NOT NULL COMMENT '单价',
   `ITEM_COUNT` int(11) NOT NULL COMMENT '数量',
-  `CREATE_TIME` bigint(20) NOT NULL COMMENT '创建日期',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建日期',
   `CREATE_USER` varchar(50) DEFAULT NULL COMMENT '创建人',
-  `UPDATE_TIME` bigint(20) NOT NULL COMMENT '更新日期',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新日期',
   `UPDATE_USER` varchar(50) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
